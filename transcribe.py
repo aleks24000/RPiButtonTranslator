@@ -15,7 +15,7 @@ def transcribe_file(speech_file):
     from google.cloud import texttospeech
     import os
 
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "gspeech.json"
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.getenv("HOME")+"/gspeech.json"
 
 
     client = speech.SpeechClient()

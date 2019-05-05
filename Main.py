@@ -1,5 +1,6 @@
 
 #PiButtonTranslator
+#A simple translator for raspberry pi (with push button)
 
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import time
