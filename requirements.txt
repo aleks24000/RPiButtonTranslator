@@ -1,6 +1,8 @@
 #pre requis
-#sudo apt-get install python3-dev
-#sudo apt-get install portaudio19-dev
+#--sudo apt-get install python3-dev
+#--sudo apt-get install portaudio19-dev
+# sudo apt-get install flac
+# sudo apt-get install sox
 
 google-cloud-speech==0.36.3
 google-cloud-translate==1.4.0

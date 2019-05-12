@@ -27,7 +27,8 @@ def transcribe_file(speech_file):
 
     audio = types.RecognitionAudio(content=content)
     config = types.RecognitionConfig(
-        encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
+        #encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
+        encoding=enums.RecognitionConfig.AudioEncoding.FLAC,
         sample_rate_hertz=AUDIO_CONFIG['rate'],
         language_code='en-US',
         #language_code='de-DE',
