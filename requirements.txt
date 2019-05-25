@@ -8,6 +8,11 @@ google-cloud-speech==0.36.3
 google-cloud-translate==1.4.0
 google-cloud-storage==1.14.0
 google-cloud-texttospeech==0.4.0
-opencv-python
-numpy
-pyaudio
+
+# opencv-python
+# numpy
+# pyaudio
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+

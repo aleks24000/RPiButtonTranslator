@@ -23,16 +23,17 @@ while True: # Run forever
     if GPIO.input(3) == GPIO.HIGH and not passed:
         print("Button was pushed!")
         time.sleep(0.5)
+        passed = True
         command_line = "arecord --device=hw:" + str(AUDIO_CONFIG['record_device']) + ",0 --format S16_LE --rate " + str(
             AUDIO_CONFIG['rate']) + " -c" + str(AUDIO_CONFIG['channel']) + " temp_audio.wav &"
         args = shlex.split(command_line)
         proc = subprocess.Popen(args)
         print("PID:" + str(proc.pid))
-        passed = True
 
     if GPIO.input(3) != GPIO.HIGH and passed:
         print("Button released")
         time.sleep(0.5)
+        passed = False
         command_line = "kill " + str(proc.pid)
         os.system(command_line)
         if AUDIO_CONFIG['channel'] == 2:
