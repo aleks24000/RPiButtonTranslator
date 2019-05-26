@@ -9,7 +9,7 @@ from apiclient.http import MediaFileUpload
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/drive']
 
-def upload():
+def upload(audfile):
     """Shows basic usage of the Drive v3 API.
     Prints the names and ids of the first 10 files the user has access to.
     """
@@ -35,14 +35,14 @@ def upload():
     service = build('drive', 'v3', credentials=creds)
 
     # Call the Drive v3 API
-    file_metadata = {'name': 'temp_audio_mono.flac','parents': '1-8AC7DqvkyRX5Ok7Io1XJRMhzfaEjZcA'}
-    media = MediaFileUpload('temp_audio_mono.flac',
+    folder_id = '1-8AC7DqvkyRX5Ok7Io1XJRMhzfaEjZcA'
+    file_metadata = {'name': audfile+'.flac','parents': [folder_id]}
+    media = MediaFileUpload(audfile+'.flac',
                             mimetype='audio/flac')
     file = service.files().create(body=file_metadata,
                                         media_body=media,
                                         fields='id').execute()
     print ("File ID: " + file.get('id'))
 
-
 if __name__ == '__main__':
-    upload()
+    upload("session-10")
