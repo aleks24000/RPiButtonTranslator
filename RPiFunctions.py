@@ -7,7 +7,7 @@ import glob
 
 proc = None
 sessionFile = None
-NB_MAX_FLAC=5
+NB_MAX_FLAC = 5
 
 def findFileName():
     files = glob.glob("*.flac")
@@ -66,5 +66,4 @@ def stop_rec(debug):
             os.system(command_line)
         os.system("flac "+sessionFile+"_mono.wav -f "+sessionFile+".flac")
         os.system("rm session*.wav")
-    upload_file()
 
